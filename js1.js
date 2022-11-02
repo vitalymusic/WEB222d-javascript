@@ -96,7 +96,7 @@ let out = `Общая сумма кредита: ${answer.FullCredit}, меся�
 document.write(out);
 //let test = 4;
 
-// let test = 5;
+let test = 5;
 
 
 //2 расчета на разную тематику
