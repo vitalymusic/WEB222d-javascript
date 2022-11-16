@@ -41,3 +41,48 @@ div2[1].classList.remove('used');
 if(div2[1].classList.contains('used')){
     alert("")
 }
+
+//работа с Атрибутами элементов
+let image1 = document.querySelector('.container img');
+
+let src = image1.getAttribute("src");
+//div2[1].innerHTML += src;
+
+image1.setAttribute("width","300px");
+
+let val1 = document.querySelector('input[name="username"]').value;
+document.querySelector('textarea').value = val1;
+let select = document.querySelector('select[name="year"]');
+let selectColor = document.querySelector('select[name="color"]');
+
+
+
+for(let i = 1984; i<=2022; i++){
+    select.innerHTML+=`
+        <option value="${i}">${i}</option>
+    `;
+}
+
+
+//события 
+
+
+select.onchange = function(){
+    console.log(select.value);
+    document.querySelector('textarea').value = select.value;
+}
+selectColor.onchange = function(){
+    document.body.style.background = selectColor.value;
+}
+
+
+text1.onclick = function(){
+    text1.innerText = "Текст поменялся";
+}
+
+document.querySelector('#btn1').onclick = function(){
+    text1.innerText  = document.querySelector('input[name="username"]').value
+}
+
+
+//console.log(val1);
