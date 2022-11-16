@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        nav{
+            height:150px;
+            background-color:rgb(43, 13, 234);
+            transform: translate(0px,-300px);
+            transition: .3s;
+        }
+        .active_nav{
+            transform: translate(0px,0px);
+            transition: .5s;
+        }
+
+        .menuBtn{
+            position:absolute;
+            top:20px;
+            right:30px;
+            z-index: 20;
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        this is Nav
+    </nav>
+
+    <button class="menuBtn">Click me</button>
+
+    <form action="">
+        <input type="checkbox" name="enable" value="1">
+        <label>Активировать</label>
+        <br>
+        <textarea name="" id="" cols="30" rows="10" disabled>
+        </textarea>
+
+    </form>
+
+    <div class="images">
+        <img src="" alt="" height="300px">
+        <div class="buttons">
+            <button class="prev">назад</button>
+            <button class="next">вперед</button>
+        </div>
+    </div>
+
+    <script>
+        let nav = document.querySelector('nav');
+        let btn = document.querySelector('.menuBtn');
+
+
+        btn.onclick = function(){
+            nav.classList.toggle('active_nav');
+        }
+    </script>
+
+    <script>
+        let checkbox = document.querySelector('input[type="checkbox"]');
+        let textarea = document.querySelector('textarea');
+
+        checkbox.onchange = function(){
+            console.log(checkbox.checked);
+            if(checkbox.checked){
+                textarea.removeAttribute("disabled")
+            }else{
+                textarea.setAttribute("disabled","")
+            }
+        }
+    </script>
+
+
+<script>
+    let images = [
+        'https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/2019-honda-civic-sedan-1558453497.jpg?crop=1xw:0.9997727789138833xh;center,top&resize=480:*',
+        'https://www.chevrolet.com/content/dam/chevrolet/na/us/english/vdc-collections/2022/cars/malibu/01-images/2022-malibu-1sp-gsk-colorizer.jpg?imwidth=960',
+        'https://images.drive.com.au/driveau/image/upload/c_fill,h_1080,w_1920/q_auto:eco/f_auto/v1/cms/uploads/jjslyagf8e3gcny2doyy',
+        'https://www.chevrolet.com/content/dam/chevrolet/na/us/english/portable-nav/small-vehicle-jellies/2022-corvette-3lt-gkz-colorizer.jpg?imwidth=960'
+    ]
+
+
+
+    //img,prev,next
+
+    let img = document.querySelector('img');
+    let prevBtn = document.querySelector('.prev');
+    let nextBtn = document.querySelector('.next');
+    let imageNumber = 0;
+    img.setAttribute("src",images[imageNumber]);
+
+    prevBtn.onclick = function(){
+        imageNumber --;
+        if(imageNumber<0){
+            imageNumber = images.length-1
+        }
+        img.setAttribute("src",images[imageNumber]);
+    }
+
+    nextBtn.onclick = function(){
+        imageNumber ++;
+        if(imageNumber>images.length - 1){
+            imageNumber = 0;
+        }
+        img.setAttribute("src",images[imageNumber]);
+    }
+
+    //Сделать форму в которой показываются или скрыаются определенные элементы, активируются/деактивируются
+
+    //Сделать Мобильное меню, всплывающее окно (диалогоое окно)
+    
+</script>
+</body>
+</html>
