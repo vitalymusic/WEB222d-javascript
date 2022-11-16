@@ -41,6 +41,7 @@ div2[1].classList.remove('used');
 if(div2[1].classList.contains('used')){
     alert("")
 }
+<<<<<<< HEAD
 
 //работа с Атрибутами элементов
 let image1 = document.querySelector('.container img');
@@ -86,3 +87,5 @@ document.querySelector('#btn1').onclick = function(){
 
 
 //console.log(val1);
+=======
+>>>>>>> 2684a8f7976f46911322366e238c4c826c685c97
