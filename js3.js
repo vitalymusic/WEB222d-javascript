@@ -18,3 +18,26 @@ let headings = document.querySelectorAll("h1,h2"); //возвращает все
 
 
 console.log(headings);
+
+
+
+//Вывод информации  определенные элементы на странице
+ div2 = document.querySelectorAll('.container');
+
+ //innerHTML
+
+ div2[1].innerHTML += "<h1>Hello Everybody</h1>";
+ text1.innerText = "Новый заголовок!!!";
+
+ input1[0].style.border = "2px solid red";
+ div2[0].style.backgroundColor = "blue";
+ div2[0].style.color = "white";
+
+ //Подключение или отключение классов к элементам
+document.body.classList.add('body1'); //добавление класса к элементам
+div2[1].classList.remove('active');
+div2[1].classList.remove('used');
+
+if(div2[1].classList.contains('used')){
+    alert("")
+}
