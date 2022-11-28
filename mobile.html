@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+          *{
+            padding:0;margin:0;
+        }
+   
+
+
+    @media screen and (min-width: 600px){ 
+        nav{
+            height:80px;
+            background-color: aqua;
+        }
+        nav  button{
+            display:block;
+        }
+
+        nav ul{
+            display:flex;
+            flex-direction:column;
+            position:absolute;
+            left:-300px;
+            justify-content:center;
+            list-style-type:none;
+            transition: .3s;
+        }
+
+        nav ul li{
+            margin:0px;
+            
+        }
+
+        nav ul li a{
+            text-decoration: none;
+        }
+
+     }
+
+     @media screen and (min-width: 1200px){  
+        nav{
+            height:100px;
+            background-color: aqua;
+        }
+        nav  button{
+            display:none;
+        }
+        nav ul{
+            position:static;
+            display:flex;
+            flex-direction:row;
+            justify-content:center;
+            list-style-type:none;
+        }
+
+        nav ul li{
+            margin:30px;
+        }
+
+        nav ul li a{
+            text-decoration: none;
+        }
+
+    }
+    .active{
+        left:10px;
+        transition: .3s;
+    }
+    </style>
+</head>
+<body>
+    <nav>
+        <button class="mobileMenu">MENU</button>
+        <ul>
+            <li><a href="">menu 1</a></li>
+            <li><a href="">menu 2</a></li>
+            <li><a href="">menu 3</a></li>
+        </ul>
+    </nav>
+
+    <script>
+        document.querySelector('button.mobileMenu').onclick = function(){
+                document.querySelector('nav ul').classList.toggle('active');
+        }
+    </script>
+</body>
+</html>
