@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+       <form action="" method="post">
+            <input type="text" name="name">
+            <input type="text" name="surname">
+            <input type="date" name="dateOfBirth">
+            <input type="submit" value="OK">
+       </form>   
+       
+       
+       <script>
+            form = document.querySelector('form');
+            let formError = false;
+            function showError(text){
+                
+                let error = text;
+                let span = document.createElement('span');
+                span.classList.add('error');
+                let spanText = document.createTextNode(error);
+                span.appendChild(spanText);
+                return span;
+            }
+            
+            
+
+
+            form.onsubmit = function(e){
+                e.preventDefault();
+                if(e.target[0].value.length<3){
+                    e.target[0].after(showError("Please fill this field"));
+                    formError = true;
+                }else{
+                    formError = false;
+                }
+                if(e.target[1].value.length<3){
+                    e.target[1].after(showError("Please fill this field"));
+                    formError = true;
+                }else{
+                    formError = false;
+                }
+
+                if(e.target[2].value.length<3){
+                    e.target[2].after(showError("Please fill this field"));
+                    formError = true;
+                }else{
+                    formError = false;
+                }
+                // Регулярные выражения
+                
+                if(formError==false){
+                    document.querySelectorAll('span.error').forEach(function(item){
+                        item.remove();
+                    });
+                    form.submit();
+                }
+            }
+            
+
+
+       </script>
+</body>
+</html>

@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+        <input type="text">
+        <button class="add">Add task</button>
+        <button class="del">Delete task</button>
+
+        <div style="border: 1px solid red">
+
+        </div>
+
+
+        <script>
+            //работа с массивами
+            //PUSH POP
+
+            let tasks = [];
+
+            btn1 = document.querySelector('button.add');
+            btn2 = document.querySelector('button.del');
+
+            input = document.querySelector('input');
+            div = document.querySelector('div');
+
+
+            btn1.onclick = function(){
+                tasks.push(input.value);
+                input.value="";
+                console.log(tasks);
+                render();
+                
+                // if(document.querySelectorAll('div div').length > 0){
+                //     div.removeChild(taskDiv);
+                // }
+
+                
+            
+            }
+            btn2.onclick = function(){
+                tasks.pop(); //удаляет элемент из массива
+                console.log(tasks);
+                render();
+            }
+
+            //Дополнительные методы shift() unshift();
+
+            function addTask(data){
+                let taskDiv = document.createElement('div');
+                let taskText = document.createTextNode(data);
+                taskDiv.appendChild(taskText);
+                div.appendChild(taskDiv);
+            }
+
+            function emptyDiv(){
+                div.innerHTML = '';
+            }
+
+            function render(){
+                emptyDiv();
+                for(task in tasks){
+                addTask(tasks[task]);
+            }
+        }
+            //написать скрипт в которм в форму добавляются дополнительные элементы Можно циклом
+
+            
+
+        </script>
+</body>
+</html>
