@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Regular expressions</title>
+</head>
+<body>
+    <script>
+        let text1 = `Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.`; 
+        let phone = "+371222333444";
+        let email = "user@asdasdasd.com";
+        //let regexp1 = /[A-Z]/g; //Регулярные выражения пишутся без кавычек именно JS
+        //let regexp1 = /[0-9]/g; //Регулярные выражения пишутся без кавычек именно JS
+        //let regexp1 = /(um)$/gim; //Регулярные выражения пишутся без кавычек именно JS
+        //let regexp1 = /[+371][0-9]{12}/gim; //Регулярные выражения пишутся без кавычек именно JS
+        let regexp1 = /[a-z]{3,15}[@][a-z]{2,10}[.][a-z]{2,3}/gm; //Проверка почты
+
+        /// [a-z, A-Z]/Искать символы от и до
+
+        //console.log(text1.search(regexp1)); //search() String
+        //console.log(text1.replace(regexp1,'JS'));
+        console.log(email.match(regexp1));
+
+
+        //Сделать форму чтото включить или выключить и проверку полей через регулярные выражения
+    </script>
+</body>
+</html>
