@@ -5,6 +5,34 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <style>
+            .products{
+                display:grid;
+                grid-template-columns: auto auto auto auto;
+            }
+            .products img{
+                /* width:75%; */
+                height:200px;
+                display:block;
+                margin:auto;
+            }
+            .products .product{
+                border:1px solid rgba(0, 0, 0, 0.445);
+                margin:10px;
+            }
+            h1,h3,p{
+                text-align: center;
+            }
+            .price{
+                font-weight:bold;
+                color:red;
+                font-size: 1.3rem;
+            }
+            .quantity{
+                text-align: center;
+                margin-bottom: 20px;
+            }
+    </style>
 </head>
 <body>
     <script>
@@ -51,7 +79,7 @@
         let div = document.querySelector(".products");
         
         for(product in products){
-            console.log(product);
+            //console.log(product);
             div.innerHTML += `
                 <div class="product">
                     <h3>${products[product].name}</h3>
