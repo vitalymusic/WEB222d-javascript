@@ -113,7 +113,7 @@
                     })
 
                     table =
-                    `
+         `
                 <table border="1" width="50%">
                 <tr>
                     <td>Название продукта</td>
@@ -133,10 +133,10 @@
                             <td>${productsItem.price}</td>
                             <td>${cart[cartItem].quantity}</td>
                             <td>${(productsItem.price * cart[cartItem].quantity).toFixed(2)}</td>
-                        </tr>
-                        </table>`
+                        </tr>`
+                        
         }  
-
+        table += `</table>`;
        
         cardDiv.innerHTML = table;
 
