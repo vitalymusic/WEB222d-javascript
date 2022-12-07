@@ -101,6 +101,7 @@
             let btns = document.querySelectorAll('#addToCart');
             let cart = [];
             let table = "";
+            let sum = 0;
 
             for(button in btns){
                 btns[button].onclick  = function(e){
@@ -127,6 +128,7 @@
                             return item
                         }
                    });
+                   sum += productsItem.price * cart[cartItem].quantity;
                     table +=`
                        </tr> 
                             <td>${productsItem.name}</td>
@@ -135,7 +137,13 @@
                             <td>${(productsItem.price * cart[cartItem].quantity).toFixed(2)}</td>
                         </tr>`
                         
-        }  
+        } 
+        table+=`
+            <tr>
+                <td colspan="3">сумма за ве товары:</td>
+                <td>${(sum).toFixed(2)}</td>    
+            </tr>    
+        ` 
         table += `</table>`;
        
         cardDiv.innerHTML = table;
