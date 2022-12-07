@@ -100,6 +100,7 @@
     <script>
             let btns = document.querySelectorAll('#addToCart');
             let cart = [];
+            let table = "";
 
             for(button in btns){
                 btns[button].onclick  = function(e){
@@ -111,32 +112,33 @@
                         quantity:quantity
                     })
 
-                    cardDiv.innerHTML =
+                    table =
                     `
                 <table border="1" width="50%">
-                <thead>    
                 <tr>
                     <td>Название продукта</td>
                     <td>Цена</td>
                     <td>Количество</td>
                     <td>Сумма</td>
-                </tr>`
+                </tr>`;
         for(cartItem in cart){
-            cardDiv.innerHTML +=`<tr>`;
             let productsItem =  products.find(function(item){
                         if(item.id==cart[cartItem].id){
                             return item
                         }
                    });
-                    cardDiv.innerHTML +=`
-                         <td>${productsItem.name}</td>
-                        <td>${productsItem.price}</td>
-                        <td>${cart[cartItem].quantity}</td>
-                        <td>${(productsItem.price * cart[cartItem].quantity).toFixed(2)}</td>
-                        </tr>`
+                    table +=`
+                       </tr> 
+                            <td>${productsItem.name}</td>
+                            <td>${productsItem.price}</td>
+                            <td>${cart[cartItem].quantity}</td>
+                            <td>${(productsItem.price * cart[cartItem].quantity).toFixed(2)}</td>
+                        </tr>
+                        </table>`
         }  
 
-        cardDiv.innerHTML += `</table>`;
+       
+        cardDiv.innerHTML = table;
 
 
                  //клик  
