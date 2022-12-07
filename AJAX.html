@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AJAX</title>
+</head>
+<body>
+    <form action="" id="form1">
+        <input type="text" name="name">
+        <input type="text" name="surname">
+        <input type="text" name="username">
+
+        <input type="submit" value="Send">
+    </form>
+
+    <button class="load">Load data</button>
+
+    <div class="container" style="border:2px solid red">
+
+    </div>
+
+
+    <script>
+        // ДЛЯ ФОРМ
+        let form = document.getElementById("form1");
+        form.onsubmit = function(event){
+            event.preventDefault();
+            let formdata = new FormData(form);
+        let xhr = new XMLHttpRequest();
+        xhr.open('POST','https://dummyjson.com/products/add');
+        xhr.onreadystatechange = function() {
+            if(xhr.readyState == 4){
+                console.log(xhr.response);
+            }
+        }
+        xhr.send(formdata);
+    }
+
+
+    document.querySelector('.load').onclick = function(){
+
+        let xhr = new XMLHttpRequest();
+        xhr.open('get','https://dummyjson.com/products');
+        xhr.onreadystatechange = function() {
+            if(xhr.readyState == 4){
+                console.log(JSON.parse(xhr.response));
+                document.querySelector('.container').innerHTML = xhr.response;
+
+            }
+        }
+        xhr.send();
+    }
+
+// используя XMLHttpRequest вывести и отрисовать продукты с адреса https://dummyjson.com/products
+
+// Используя https://formspree.io/ сделать контактную форму на сайте
+
+// API
+
+window.setInterval(function(){ 
+    console.log("alert")
+},500);
+
+window.setTimeout(function(){
+    alert()
+},5000)
+   
+
+    </script>
+</body>
+</html>
