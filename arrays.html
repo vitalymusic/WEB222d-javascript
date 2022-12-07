@@ -113,7 +113,7 @@
                         quantity:quantity
                     })
 
-                    table =
+               table =
          `
                 <table border="1" width="50%">
                 <tr>
@@ -123,30 +123,59 @@
                     <td>Сумма</td>
                 </tr>`;
         for(cartItem in cart){
+          
             let productsItem =  products.find(function(item){
                         if(item.id==cart[cartItem].id){
                             return item
                         }
                    });
-                   sum += productsItem.price * cart[cartItem].quantity;
+                   
                     table +=`
                        </tr> 
                             <td>${productsItem.name}</td>
                             <td>${productsItem.price}</td>
                             <td>${cart[cartItem].quantity}</td>
-                            <td>${(productsItem.price * cart[cartItem].quantity).toFixed(2)}</td>
+                            <td class="sum">${(productsItem.price * cart[cartItem].quantity).toFixed(2)}</td>
                         </tr>`
                         
-        } 
+                        
+        }
         table+=`
             <tr>
                 <td colspan="3">сумма за ве товары:</td>
-                <td>${(sum).toFixed(2)}</td>    
+                <td class="FullSum">${(sum).toFixed(2)}</td>    
             </tr>    
         ` 
         table += `</table>`;
        
         cardDiv.innerHTML = table;
+
+        window.setTimeout(function(){
+            let sumCells = document.querySelectorAll('td.sum');
+            console.log(sumCells);
+
+            // for (item in sumCells){
+            //     if(sumCells[item].innerHTML){
+                    
+            //         sum += +sumCells[item].innerHTML;
+            //         console.log(sum);
+            //     }
+            // }
+            sum=0;
+            sumCells.forEach(function(item){
+
+                if(item.innerHTML!=""){
+                            sum += +item.innerHTML;
+                            
+                        }
+            })
+            document.querySelector('.FullSum').innerHTML = sum.toFixed(2);
+            
+        
+        
+    },10) 
+
+
 
 
                  //клик  
